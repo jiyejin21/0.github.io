@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 화면 전체 높이를 사용 */
+    width: 100vw;  /* 화면 전체 너비를 사용 */
+    position: relative;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 화면을 넘어가는 부분을 숨깁니다 */
+}
+
+#game-container {
+    position: relative;
+    width: 90vw;  /* 화면 너비의 90% */
+    height: 90vh; /* 화면 높이의 90% */
+    max-width: 500px;  /* 최대 너비를 500px로 설정 */
+    max-height: 500px; /* 최대 높이를 500px로 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;  
+    background-position: center;  
+}
+
+        #why-button {
+            position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+        }
+
+
+        @keyframes slideDown1 {
+            from {
+                transform: translateX(15%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideDown2 {
+            from {
+                transform: translateX(15%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @keyframes slideDown3 {
+            from {
+                transform: translateY(15%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        img[alt="back1"] {
+            animation: slideDown1 1s ease-out forwards;
+        }
+        img[alt="back2"] {
+            animation: slideDown2 1s ease-out forwards;
+            animation-delay: 1s;
+            visibility: hidden; 
+        }
+        img[alt="back3"] {
+            animation: slideDown3 1s ease-out forwards;
+            animation-delay: 2s;
+            visibility: hidden; 
+        }
+
+        @keyframes slideback2bull {
+            from {
+                transform: translateX(5%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @keyframes slideDown3ball {
+            from {
+                transform: translateY(-5%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        img[alt="back2bull"] {
+            animation: slideback2bull 1s ease-out forwards;
+            animation-delay: 1s;
+            visibility: hidden; 
+        }
+        img[alt="back3ball"] {
+            animation: slideDown3ball 1s ease-out forwards;
+            animation-delay: 3s;
+            visibility: hidden; 
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-10px) scale(1); }
+            
+        }
+        .bounce {
+            animation: bounce 0.5s ease;
+        }
+        .back3ball1 {
+            visibility: hidden; 
+            opacity: 0;         
+            transition: visibility 0s 4s, opacity 0.5s ; 
+        }
+
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <img src="image/6-01.png" alt="back1" style="position: absolute;">
+        <img src="image/6-02.png" alt="back2" style="position: absolute;">
+        <img src="image/6-02bull.png" alt="back2bull" style="position: absolute;">
+        <img src="image/6-03.png" alt="back3" style="position: absolute;">
+        <img src="image/6-03ball.png" alt="back3ball" style="position: absolute;">
+        <img src="image/6-03ball1.png" class="back3ball1" style="position: absolute;">
+        <img src="image/6-03ball2.png" class="back3ball1" style="position: absolute;">
+        <img src="image/6-03ball3.png" class="back3ball1" style="position: absolute;">
+        <img src="image/6-03ball4.png" class="back3ball1" style="position: absolute;">
+        <img src="image/6-03ball5.png" class="back3ball1" style="position: absolute;">
+        <img src="image/6-03ball6.png" class="back3ball1" style="position: absolute;">
+    </div>
+    
+    <button id="why-button" onclick="goToCut2()">다음</button>
+
+    <script>
+        function goToCut2() {
+            window.location.href = "cut7.html";
+        }
+
+        const images = document.querySelectorAll('.back3ball1');
+
+        function animateImages() {
+        images.forEach((img, index) => {
+            setTimeout(() => {
+                img.style.visibility = "visible"; 
+                img.style.opacity = "1";
+                img.classList.add('bounce');
+                img.addEventListener('animationend', () => img.classList.remove('bounce'));
+            }, index * 100); 
+        });
+        }
+
+        animateImages();
+
+        setInterval(animateImages, images.length * 100 + 3000);
+    </script>
+</body>
+</html>

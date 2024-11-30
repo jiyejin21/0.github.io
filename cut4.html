@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>응?</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 화면 전체 높이를 사용 */
+    width: 100vw;  /* 화면 전체 너비를 사용 */
+    position: relative;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* 화면을 넘어가는 부분을 숨깁니다 */
+}
+
+#game-container {
+    position: relative;
+    width: 90vw;  /* 화면 너비의 90% */
+    height: 90vh; /* 화면 높이의 90% */
+    max-width: 500px;  /* 최대 너비를 500px로 설정 */
+    max-height: 500px; /* 최대 높이를 500px로 설정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;  
+    background-position: center;  
+}
+
+        #why-button {
+            position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+        }
+
+
+        @keyframes slideDown1 {
+            from {
+                transform: translateX(-15%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideDown2 {
+            from {
+                transform: translateX(15%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @keyframes slideDown3 {
+            from {
+                transform: translateY(15%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        img[alt="back1"] {
+            animation: slideDown1 1s ease-out forwards;
+        }
+        img[alt="back2"] {
+            animation: slideDown2 1s ease-out forwards;
+            animation-delay: 2s;
+            visibility: hidden; 
+        }
+        img[alt="back3"] {
+            animation: slideDown3 1s ease-out forwards;
+            animation-delay: 4s;
+            visibility: hidden; 
+        }
+
+        @keyframes slideDown1ball {
+            from {
+                transform: translateX(5%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @keyframes slideDown2ball {
+            from {
+                transform: translateX(-5%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @keyframes slideDown3ball1 {
+            from {
+                transform: translateX(5%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @keyframes slideDown3ball2 {
+            from {
+                transform: translateX(-5%);
+                opacity: 0;
+                visibility: visible;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        img[alt="back1ball"] {
+            animation: slideDown1ball 1s ease-out forwards;
+            animation-delay: 1s;
+            visibility: hidden; 
+        }
+        img[alt="back2ball"] {
+            animation: slideDown2ball 1s ease-out forwards;
+            animation-delay: 3s;
+            visibility: hidden; 
+        }
+        img[alt="back3ball1"] {
+            animation: slideDown3ball1 1s ease-out forwards;
+            animation-delay: 5s;
+            visibility: hidden; 
+        }
+        img[alt="back3ball2"] {
+            animation: slideDown3ball2 1s ease-out forwards;
+            animation-delay: 6s;
+            visibility: hidden; 
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <img src="image/4-01.png" alt="back1" style="position: absolute;">
+        <img src="image/4-01ball.png" alt="back1ball" style="position: absolute;">
+        <img src="image/4-02.png" alt="back2" style="position: absolute;">
+        <img src="image/4-02ball.png" alt="back2ball" style="position: absolute;">
+        <img src="image/4-03.png" alt="back3" style="position: absolute;">
+        <img src="image/4-03ball1.png" alt="back3ball1" style="position: absolute;">
+        <img src="image/4-03ball2.png" alt="back3ball2" style="position: absolute;">
+    </div>
+    
+    <button id="why-button" onclick="goToCut2()">응?</button>
+
+    <script>
+        function goToCut2() {
+            window.location.href = "cut5.html";
+        }
+    </script>
+</body>
+</html>
